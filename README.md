@@ -1,24 +1,9 @@
-# client
+# tele-client 
 
-## Project setup
-```
-npm install
-```
+> tele-client is a video broadcasting applicaation, where a user can join a room for live video streaming
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+- live video streaming from source 
+- peer to peer connection 
+- room messageing 
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## URL :

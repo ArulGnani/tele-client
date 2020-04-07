@@ -24,12 +24,12 @@ export default {
             console.log("broadcaster spd",description)
             peerConnction = new RTCPeerConnection(config)
             peerConnction.setRemoteDescription(description)
-            .then(() => peerConnction.createAnswer())
-            .then(sdp => peerConnction.setLocalDescription(sdp))
-            .then(() => {
-                console.log("sending sdp to broadcaster",peerConnction.localDescription)
-                socket.emit("answer",id,peerConnction.localDescription)
-            })
+                .then(() => peerConnction.createAnswer())
+                .then(sdp => peerConnction.setLocalDescription(sdp))
+                .then(() => {
+                    console.log("sending sdp to broadcaster",peerConnction.localDescription)
+                    socket.emit("answer",id,peerConnction.localDescription)
+                })
             peerConnction.ontrack = (event) => {
             console.log("start streaming from broadcaster")
             videoElement.srcObject = event.streams[0]

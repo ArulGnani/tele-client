@@ -30,7 +30,7 @@ export default {
         logout() {
             let userId = sessionStorage.getItem("userID")
             if (userId){
-                fetch(`http://localhost:5000/api/room-client-logout/${userId}`,{
+                fetch(`https://tele-backend.herokuapp.com/api/room-client-logout/${userId}`,{
                     method : "GET",
                     headers : { "Accept" : "application/json" }
                 })

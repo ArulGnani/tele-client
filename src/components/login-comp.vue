@@ -50,7 +50,7 @@ export default {
                     roomPassword : this.roomPassword
                 }
                 console.log(loginObj)
-                fetch("http://localhost:5000/api/room-client-login",{
+                fetch("https://tele-backend.herokuapp.com/api/room-client-login",{
                     method : "POST",
                     headers : {
                         "Content-Type" : "application/json",
