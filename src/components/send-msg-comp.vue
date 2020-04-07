@@ -25,7 +25,7 @@ export default {
         sendMsg(){
             if (this.msg !== ""){
                 socket.emit("new-msg",{
-                    room : "sample",
+                    room : this.roomName,
                     sender : this.userName,
                     msg : this.msg
                 })

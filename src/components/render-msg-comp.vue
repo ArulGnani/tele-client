@@ -3,7 +3,7 @@
         <div 
             v-for="msg in allMsg" :key="msg.id" 
             class="msg-comp">
-                <p >{{ msg.msg }}</p>
+                <p>{{ msg.msg }}</p>
                 <small>sender : {{ msg.sender }}</small>
         </div>
     </div>    
@@ -41,13 +41,20 @@ export default {
         display: none;
     }
     .msg-comp {
-        background : #5656dd;
+        background : #6b6be7;
         border-radius: 10px;
         margin-top: 10px;
         margin-bottom: 10px;        
         padding: 10px;
+        color: white;
     }
     .msg-comp > p {
         font-size: 20px;
+        letter-spacing: 1px;
+        word-spacing: 3px;
+    }
+    .msg-comp > small {
+        letter-spacing: 0.5px;
+        word-spacing: 3px;
     }
 </style>

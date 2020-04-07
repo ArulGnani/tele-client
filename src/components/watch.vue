@@ -18,6 +18,8 @@ export default {
     name : "WatchComp",
     mounted() {
         socket.on('offer',(id,description) => {
+            sessionStorage.removeItem("socketID")
+            sessionStorage.setItem("socketID",id)
             let videoElement = document.getElementById("videoElement")
             console.log("broadcaster spd",description)
             peerConnction = new RTCPeerConnection(config)
@@ -47,11 +49,12 @@ export default {
         })
         
         socket.on("connect",() => {
-            socket.emit("watcher")
+            let roomName = sessionStorage.getItem("roomName")
+            socket.emit("watcher",roomName)
         })
 
-        socket.on("broadcaster",() => {
-            socket.emit("watcher")
+        socket.on("broadcaster",roomName => {
+            socket.emit("watcher",roomName)
         })
 
         socket.on("bye",() => {

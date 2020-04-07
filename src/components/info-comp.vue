@@ -1,7 +1,7 @@
 <template>
     <div class="info-comp">
         <div id="views">
-            viewers : {{  }}
+            viewers : {{ this.views }}
         </div>
         <div id="logout">
             <button v-on:click="logout">logout</button>
@@ -12,11 +12,6 @@
 <script>
 import socket from './socket'
 
-socket.on("no-view",noViewers => {
-    console.log("no of viewers",noViewers)
-    let viewElement = document.getElementById("views")
-    viewElement.innerText = `viewers : ${noViewers}`
-})
 
 export default {
     name : "InfoComp",
@@ -24,6 +19,12 @@ export default {
         return{
             views : 0
         }
+    },
+    mounted(){
+        socket.on("no-view",noViewers => {
+            console.log("no of viewers",noViewers)
+            this.views = noViewers
+        })
     },
     methods : {
         logout() {
@@ -36,6 +37,10 @@ export default {
                 .then(res => res.json())
                 .then(data => {
                     if (data){
+                        let roomName = sessionStorage.getItem("roomName")
+                        let id = sessionStorage.getItem("socketID")
+                        let info = {roomName : roomName,id : id}
+                        socket.emit("disconnect", info)
                         this.deleteData()
                     }
                 })
@@ -51,6 +56,7 @@ export default {
             sessionStorage.removeItem("roomName")
             sessionStorage.removeItem("userID")
             sessionStorage.removeItem("userName")
+            sessionStorage.removeItem("socketID")
             this.$router.push({ path : "/"})
         }
     }
