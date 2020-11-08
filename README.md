@@ -1,12 +1,20 @@
-# tele-client 
 
-> tele-client is a video broadcasting applicaation, where a user can join a room for live video streaming
+# telestream
 
-- live video streaming from source 
-- peer to peer connection 
-- room messageing 
+telestream is an video streaming application.
 
-## URL : https://tele-stream.netlify.com/#/
+### to broadcast your video 
 
-> broadcast from:
-## URL : https://tele-cas.netlify.com/
+- view this project **[click](https://telecas.netlify.app/)**
+
+- create private or public room and broadcast your video 
+
+- [repo for this project](https://github.com/ArulGnani/) 
+
+### to join a broadcast 
+
+- view this project **[url](https://tele-stream.netlify.app/#/)**
+
+- use your room credentials to login in to your room 
+
+- [repo for this project](https://github.com/ArulGnani/tele-stream)
